@@ -1,0 +1,35 @@
+﻿@model GmailMessagesViewer.Models.MessagesListViewModel
+
+@{
+    ViewBag.Title = "GetMessages";
+}
+
+<h2>Messages</h2>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Snippet</th>
+    </tr>
+@foreach (var message in Model.Messages) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => message.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => message.Title)
+        </td>
+    </tr>
+}
+</table>
+@for (var i = 1; i <= Model.Pagination.TotalPagesCount; i++)
+{
+    if (Model.Pagination.PageNumber == i)
+    {
+        <a href="#" class="page-number active-page">@i</a>    
+    }
+    else
+    {
+        @Html.ActionLink(i.ToString(), "GetMessages", "Messages", new { pageNumber = i }, new { @class = "page-number" })
+    }
+}

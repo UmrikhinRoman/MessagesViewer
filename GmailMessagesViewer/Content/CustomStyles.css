@@ -1,0 +1,13 @@
+﻿.active-page {
+    color: white;
+    background-color: #428bca;
+    padding:5px;
+    border-radius: 50%;
+}
+.page-number{
+    display: inline-block;
+    vertical-align:middle;
+    width:30px;
+    text-align:center;
+    overflow:hidden;
+}
